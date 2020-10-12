@@ -5,10 +5,17 @@ let libraryDisplay = document.querySelector('#library-display')
 let formToggler = document.querySelector(".plus")
 let form = document.querySelector(".formWrapper")
 let minusToggler = document.querySelector(".minus")
+let removeBtns = document.querySelectorAll(".card-btn")
 
 submitBtn.addEventListener("click", processForm);
-formToggler.addEventListener("click", toggleForm)
+formToggler.addEventListener("click", toggleForm);
+removeBtns.forEach(button => {
+    button.addEventListener("click", removeCard)
+})
 
+function removeCard() {
+    this.parentElement.parentElement.remove()
+}
 
 // Functions
 function toggleForm(){
@@ -16,7 +23,7 @@ function toggleForm(){
     formToggler.classList.toggle("btn-shadow");
     formToggler.classList.toggle("hidden");
     minusToggler.classList.toggle("hidden");
-}
+};
 
 function addBookCard(title, author, numPages, readBefore){
     const wrapperDiv = document.createElement("div"); 
@@ -44,9 +51,9 @@ function addBookCard(title, author, numPages, readBefore){
     wrapperDiv.classList.add("col-4");
     bookDiv.classList.add("col");
     bookDiv.classList.add("bookCard");
-    removeBtn.classList.add("btn")
-    removeBtn.classList.add("card-btn")
-    removeBtn.classList.add("btn-outine-danger")
+    removeBtn.classList.add("btn");
+    removeBtn.classList.add("card-btn");
+    removeBtn.classList.add("btn-outine-danger");
 
     wrapperDiv.appendChild(bookDiv);
     bookDiv.appendChild(titleElement);
@@ -56,7 +63,7 @@ function addBookCard(title, author, numPages, readBefore){
     bookDiv.appendChild(removeBtn);
 
     document.querySelector(".library-display").appendChild(wrapperDiv);
-}
+};
 
 function processForm () {
     getData();
@@ -64,7 +71,7 @@ function processForm () {
     addBookToLibrary(bookObj);
     addBookCard(bookData.title, bookData.author, bookData.numPages, bookData.readBefore);
     bookData = {}
-}
+};
 
 function getData() {
     let formDataArray = Array.from(document.querySelectorAll('#bookForm input'));
@@ -78,7 +85,7 @@ function getData() {
         key = input.id;
         bookData[key] = value
     })
-}
+};
 
 function book(title, author, numPages, readBefore) {
     this.title = title;
@@ -94,9 +101,9 @@ function book(title, author, numPages, readBefore) {
         }
         return title + ", by " + author + ", " + numPages + " pages , " + readText
     }
-}
+};
 
 function addBookToLibrary(book) {
     library.push(book);
     console.log(library)
-}
+};
