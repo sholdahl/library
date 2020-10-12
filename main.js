@@ -25,6 +25,7 @@ function addBookCard(title, author, numPages, readBefore){
     const authorElement = document.createElement("h5"); 
     const pagesElement = document.createElement("h5"); 
     const readElement = document.createElement("h5");
+    const removeBtn = document.createElement("button")
 
     let bookTitle = document.createTextNode(title);
     titleElement.appendChild(bookTitle);
@@ -36,17 +37,23 @@ function addBookCard(title, author, numPages, readBefore){
     } else { readStatus = "Not read yet"}
     let bookRead = document.createTextNode(readStatus);
     readElement.appendChild(bookRead);
+    let removeText = document.createTextNode("Remove");
+    removeBtn.appendChild(removeText);
 
     wrapperDiv.classList.add("bookWrapper");
     wrapperDiv.classList.add("col-4");
     bookDiv.classList.add("col");
     bookDiv.classList.add("bookCard");
+    removeBtn.classList.add("btn")
+    removeBtn.classList.add("card-btn")
+    removeBtn.classList.add("btn-outine-danger")
 
     wrapperDiv.appendChild(bookDiv);
     bookDiv.appendChild(titleElement);
     bookDiv.appendChild(authorElement);
     bookDiv.appendChild(pagesElement);
     bookDiv.appendChild(readElement);  
+    bookDiv.appendChild(removeBtn);
 
     document.querySelector(".library-display").appendChild(wrapperDiv);
 }

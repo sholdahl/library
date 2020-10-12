@@ -26,8 +26,8 @@ body {
     padding: 75px 0px;
 }
 
-button{
-    background-color: #a0d6b7 !important;
+.formWrapper button{
+    background-color: #a0d6b7;
 }
 
 .bookCard h3{
@@ -79,4 +79,15 @@ button{
 
 .btn-shadow{
     box-shadow: 0 0 8px hsla(0, 0%, 0%, .3);
+}
+
+.card-btn {
+    width: 100%;
+    border-color: rgb(240, 89, 89);
+    color: rgb(240, 89, 89);
+}
+.card-btn:hover {
+    width: 100%;
+    background-color: rgb(240, 89, 89);
+    border-color: rgb(240, 89, 89);
 }
