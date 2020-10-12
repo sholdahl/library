@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Library</title>
 </head>
-<body>
-    <h1>The Library</h1>    
 
+<body>
+    <div class="container">
+        <h1 class="text-center title">The Library</h1>
+        <div class="formWrapper hidden">
+            <form id="bookForm">
+                <label for="title">Book title</label><br>
+                <input type="text" id="title" name="title"><br><br>
+                <label for="author">Book author</label><br>
+                <input type="text" id="author" name="author"><br><br>
+                <label for="numPages">Number of pages</label><br>
+                <input type="text" id="numPages" name="numPages"><br><br>
+                <label for="readBefore">I've read this book</label><br>
+                <input type="checkbox" id="readBefore" name="readBefore"><br><br>
+                <button type="button" id="submit" class="btn">Submit</button>
+            </form>
+        </div>
+        <div class="form-toggler btn-shadow plus">+</div>
+        <div class="form-toggler minus hidden">-</div>
+        <div class="row library-display">
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
+
 </html>

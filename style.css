@@ -1,0 +1,82 @@
+.bookCard {
+    border-radius: 15px;
+    background-color: whitesmoke;
+    padding: 25px;
+}
+
+.formWrapper {
+    border-radius: 15px;
+    background-color: whitesmoke;
+    padding: 25px;
+}
+
+.bookWrapper {
+    padding: 15px;
+}
+
+body {
+    background-image: url(more-leaves.png)
+}
+
+.title {
+    font-weight: 200;
+    font-size: 60px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 75px 0px;
+}
+
+button{
+    background-color: #a0d6b7 !important;
+}
+
+.bookCard h3{
+    font-weight: 600;
+}
+
+.formWrapper{
+    position: absolute;
+    top: 80px;
+    right: 100px;
+    width: 300px;
+    height: 426px;
+    z-index: 1;
+    box-shadow: 0 0 8px hsla(0, 0%, 0%, .2);
+    transition: all 0.2s ease-in-out;
+}
+.hidden{
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.formWrapper button{
+    width: 250px
+}
+
+.form-toggler{
+    font-size: 70px;
+    background-color: whitesmoke;
+    position: absolute;
+    border-radius: 100%;
+    top: 80px;
+    right: 100px;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+    line-height: 60px;
+    text-align: center;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.plus{
+    z-index: 2;
+}
+
+.minus{
+    top: 75px;
+    background-color: transparent;
+}
+
+.btn-shadow{
+    box-shadow: 0 0 8px hsla(0, 0%, 0%, .3);
+}
