@@ -9,15 +9,20 @@ let removeBtns = document.querySelectorAll(".card-btn")
 
 submitBtn.addEventListener("click", processForm);
 formToggler.addEventListener("click", toggleForm);
-removeBtns.forEach(button => {
-    button.addEventListener("click", removeCard)
-})
+addListeners()
 
 function removeCard() {
     this.parentElement.parentElement.remove()
 }
 
 // Functions
+function addListeners() {
+    removeBtns = document.querySelectorAll(".card-btn");
+    removeBtns.forEach(button => {
+        button.addEventListener("click", removeCard)
+    });
+}
+
 function toggleForm(){
     form.classList.toggle("hidden");
     formToggler.classList.toggle("btn-shadow");
@@ -33,6 +38,15 @@ function addBookCard(title, author, numPages, readBefore){
     const pagesElement = document.createElement("h5"); 
     const readElement = document.createElement("h5");
     const removeBtn = document.createElement("button")
+    const box = document.createElement("input")
+
+    box.setAttribute("type", "checkbox")
+    if(readBefore){
+        box.checked = true
+    } else {
+        box.checked = false
+    }
+    readElement.appendChild(box)
 
     let bookTitle = document.createTextNode(title);
     titleElement.appendChild(bookTitle);
@@ -40,8 +54,7 @@ function addBookCard(title, author, numPages, readBefore){
     authorElement.appendChild(bookAuthor);
     let bookPages = document.createTextNode("Pages: " + numPages);
     pagesElement.appendChild(bookPages);
-    if(readBefore){readStatus = "Finished reading"
-    } else { readStatus = "Not read yet"}
+    readStatus = " Finished Reading"
     let bookRead = document.createTextNode(readStatus);
     readElement.appendChild(bookRead);
     let removeText = document.createTextNode("Remove");
@@ -70,7 +83,8 @@ function processForm () {
     bookObj = new book(bookData.title, bookData.author, bookData.numPages, bookData.readBefore);
     addBookToLibrary(bookObj);
     addBookCard(bookData.title, bookData.author, bookData.numPages, bookData.readBefore);
-    bookData = {}
+    bookData = {};
+    addListeners()
 };
 
 function getData() {
